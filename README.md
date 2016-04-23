@@ -8,6 +8,13 @@ It allows to:
 * generate actions whenever an autobahn event is received
 * publish autobahn events when some actions are dispatched
 
+**Note** this package requires `Array.prototype.find` (available in node 4+ and modern browsers). If this is a problem, there is a polyfill, available using:
+```
+require('redux-autobahn/src/find_polyfill');
+// or
+// import nothing from 'redux-autobahn/src/find_polyfill';
+```
+
 ## Usage
 
 ```
