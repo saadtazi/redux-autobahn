@@ -8,7 +8,6 @@ chai.use(sinonChai);
 
 describe('`subscribe`', function () {
   let session;
-  let store;
 
   before(function () {
     return getSession()
@@ -33,7 +32,7 @@ describe('`subscribe`', function () {
 
   describe('when one basic `subscribe` option is provided (no `createAction` function)', function () {
     it('should dispatch an action when the event is received', function (done) {
-      store = getStore(session, {
+      getStore(session, {
         subscribe: { uri: 'someEvent' }
       }, { test: (previousState = {}, action) => {
         testPublish(action, 'someEvent', () => {
@@ -49,7 +48,7 @@ describe('`subscribe`', function () {
 
   describe('when one `subscribe` option is provided (with `createAction` function)', function () {
     it('should dispatch an action when the event is received', function (done) {
-      store = getStore(session, {
+      getStore(session, {
         subscribe: {
           uri: 'someFullEvent',
           createAction: (args, kwargs, details) => ({
@@ -70,7 +69,7 @@ describe('`subscribe`', function () {
 
   describe('when multiple `subscribe` options are provided', function () {
     it('should dispatch an action when one of the event is received', function (done) {
-      store = getStore(session, {
+      getStore(session, {
         subscribe: [{ uri: 'someEvent1' }, { uri: 'someEvent2' }]
       }, { test: (previousState = {}, action) => {
         testPublish(action, 'someEvent2', () => {

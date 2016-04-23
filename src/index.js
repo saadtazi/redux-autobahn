@@ -55,9 +55,9 @@ export default function createMiddleware(session, { subscribe, publish }) {
     }
     return next => action => {
       // publish
-      const publishRule = publishRules.find((rule) => {
-        return action.type === rule.type;
-      });
+      const publishRule = publishRules.find((rule) =>
+        action.type === rule.type
+      );
 
       if (publishRule) {
         const transformAction = publishRule.createEvent || createDefaultEvent;
