@@ -1,6 +1,6 @@
 {
   "name": "redux-autobahn",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A redux middleware for WAMP protocol using autobahn.",
   "main": "dist/index.js",
   "scripts": {
